@@ -6,9 +6,9 @@ public class PlayerManager : MonoBehaviour
 {
     public Transform spawnPoint;
     public CharacterController player;
- 
-    //public Bonus bonusSpawner;
-    
+
+    public Bonus bonusSpawner;
+
     private void OnTriggerEnter(Collider other) {
         // Collect pick ups
         if(other.CompareTag("Pick Up"))
@@ -16,8 +16,8 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("Pick up collected!");
             GameObject.Destroy(other.gameObject);
 
-            //if (bonusSpawner)
-                //bonusSpawner.gameObject.SendMessage("Pickup");
+            if (bonusSpawner)
+                bonusSpawner.gameObject.SendMessage("Pickup");
         }
 
         // Respawn after hitting fall zone
